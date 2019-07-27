@@ -1,0 +1,17 @@
+{
+  "name": "japanese-api",
+  "version": "0.0.1",
+  "description": "API for Japanese Language",
+  "main": "index.js",
+  "repository": "https://github.com/N/A",
+  "author": "Wilson Lau",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "apollo-server": "^2.7.0",
+    "global": "^4.4.0",
+    "graphql": "^14.4.2",
+    "knex": "^0.19.1",
+    "pg": "^7.11.0"
+  }
+}
