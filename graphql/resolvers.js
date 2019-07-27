@@ -2,12 +2,15 @@ const VerbModel = require('../models/VerbModel.js');
 
 const resolvers = {
   Query: {
-    find: async (_, { query }) => {
-      const response = await VerbModel.find({ query });
+    search: async (_, { query }) => {
+      const response = await VerbModel.search({ query });
       console.log(response);
       return response[0];
     },
-    conjugate: (_, { verb }) => {
+    conjugate: async (_, { verb }) => {
+      const response = await VerbModel.find({ dictionary_form: verb });
+      console.log(response);
+      return response;
     }
   },
   Mutation: {

@@ -82,7 +82,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    find (query: String!): VerbSummary
+    search (query: String!): VerbSummary
     conjugate (verb: String!): Verb
   }
   type Mutation {

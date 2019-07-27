@@ -1,4 +1,4 @@
-const { RuVerb, UVerb, IrregularVerb, SuruVerb, Verb } = require('../classes/AllVerbs');
+const { createVerbObject } = require('../classes/AllVerbs');
 
 exports.seed = function(knex) {
   return knex('verbs').del()
@@ -10,25 +10,7 @@ exports.seed = function(knex) {
         {dictionary_form: '返す', type: "u-verb"}
       ]
       const verbsWithConjugations = allVerbs.map(({dictionary_form, type}) => {
-        let verb;
-        switch (type) {
-          case "ru-verb":
-            verb = new RuVerb({dictionary_form});
-            break;
-          case "u-verb":
-            verb = new UVerb({dictionary_form});
-            break;
-          case "irr-verb":
-            verb = new IrregularVerb({dictionary_form});
-            break;
-          case "suru-verb":
-            verb = new SuruVerb({dictionary_form});
-            break;
-          default:
-            verb = new Verb({dictionary_form, type});
-            break;
-        }
-        return verb.all
+        return createVerbObject({dictionary_form, type}).all;
       });
       return knex('verbs').insert(verbsWithConjugations);
     });
