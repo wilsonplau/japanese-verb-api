@@ -1,3 +1,5 @@
+const all_forms = require("../helpers/all_forms.js")
+
 class Verb {
   constructor({ dictionary_form, type }) {
     this.dictionary_form = dictionary_form;
@@ -71,6 +73,17 @@ class Verb {
     }
   }
 
+  get all() {
+    let returnObj = {
+      dictionary_form: this.dictionary_form,
+      type: this.type,
+    };
+    all_forms.forEach((form) => {
+      returnObj[form] = this[form]
+    })
+    return returnObj;
+  }
+
   // STEMS
   get masu_stem() { return this.change_sound(this.dictionary_form, "i") }
 
@@ -109,7 +122,7 @@ class Verb {
     return this.change_sound(this.dictionary_form, "a") + "ない"
   }
   get short_past_form() { return this.change_sound(this.te_form, "a")}
-  get short_past_negative_form() { return self.short_present_negative_form.slice(0, -1) + "かった"}
+  get short_past_negative_form() { return this.short_present_negative_form.slice(0, -1) + "かった"}
 
   // TAI PRESENT FORM 
   get tai_present_form() { return this.masu_stem + "たい" }

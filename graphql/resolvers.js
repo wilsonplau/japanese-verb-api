@@ -1,15 +1,13 @@
-const RuVerb = require('../classes/RuVerb');
-const UVerb = require('../classes/UVerb');
-const IrregularVerb = require('../classes/IrregularVerb');
+const VerbModel = require('../models/VerbModel.js');
 
 const resolvers = {
   Query: {
-    find: (_, { query }) => {
-
+    find: async (_, { query }) => {
+      const response = await VerbModel.find({ query });
+      console.log(response);
+      return response[0];
     },
     conjugate: (_, { verb }) => {
-      const verbObj = new UVerb({dictionary_form: verb});
-      return verbObj;
     }
   },
   Mutation: {

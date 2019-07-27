@@ -76,8 +76,13 @@ const typeDefs = gql`
     causative_passive_polite_past_negative_form: String
   }
 
+  type VerbSummary {
+    dictionary_form: String
+    type: String
+  }
+
   type Query {
-    find (query: String!): Verb
+    find (query: String!): VerbSummary
     conjugate (verb: String!): Verb
   }
   type Mutation {

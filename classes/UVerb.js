@@ -1,8 +1,8 @@
-const Verb = require("./Verb");
+const Verb = require("./Verb.js");
 
 class UVerb extends Verb {
   constructor({ dictionary_form}) {
-    super({ dictionary_form, type: "u-verb"});
+    super({ dictionary_form, type: "u-verb" });
   }
 }
 

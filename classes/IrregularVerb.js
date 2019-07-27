@@ -1,4 +1,4 @@
-const Verb = require("./Verb");
+const Verb = require("./Verb.js");
 
 class IrregularVerb extends Verb {
   constructor({ dictionary_form}) {
