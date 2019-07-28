@@ -56,6 +56,12 @@ class Verb {
         if (sound === "u") return input.slice(0, -1) + "ふ";
         if (sound === "e") return input.slice(0, -1) + "へ";
         if (sound === "o") return input.slice(0, -1) + "ほ";
+      case "ば": case "び": case "ぶ": case "べ": case "ぼ":
+        if (sound === "a") return input.slice(0, -1) + "ば";
+        if (sound === "i") return input.slice(0, -1) + "び";
+        if (sound === "u") return input.slice(0, -1) + "ぶ";
+        if (sound === "e") return input.slice(0, -1) + "べ";
+        if (sound === "o") return input.slice(0, -1) + "ぼ";
       case "ま": case "み": case "む": case "め": case "も":
         if (sound === "a") return input.slice(0, -1) + "ま";
         if (sound === "i") return input.slice(0, -1) + "み";

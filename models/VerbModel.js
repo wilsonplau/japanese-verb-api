@@ -7,13 +7,22 @@ const VerbModel = {
   create: async ({ dictionary_form, type }) => {
     const verb = createVerbObject({dictionary_form, type});
     return knex("verbs").insert(verb.all)
-      .then((response) => { return response })
+      .then(() => {  
+        return knex("verbs").where('dictionary_form', dictionary_form);
+      }).then((response) => {
+        return response[0];
+      })
       .catch((error) => console.log(error.detail));
   },
   update: async({ target, dictionary_form, type}) => {
-    const verb = createVerbObject({dictionary_form, type});
+    const dictionary = dictionary_form || target;
+    const verb = createVerbObject({dictionary_form: dictionary, type});
     return knex('verbs').where('dictionary_form', target).update(verb.all)
-      .then((response) => { return response })
+      .then(() => { 
+        return knex("verbs").where('dictionary_form', dictionary);
+      }).then((response) => {
+        return response[0];
+      })
       .catch((error) => console.log(error.detail));
   },
   delete: async ({dictionary_form}) => {
@@ -28,8 +37,8 @@ const VerbModel = {
   },
   search: async ({ query }) => {
     const allColumns = `${allForms.map((column_name) => `${column_name} = '${query}'`).join(" OR ")}`;
-    return knex.raw(`SELECT dictionary_form, type FROM verbs WHERE ${allColumns};`)
-      .then((response) => { return response.rows })
+    return knex.raw(`SELECT * FROM verbs WHERE ${allColumns};`)
+      .then((response) => { return response.rows[0] })
       .catch((error) => console.log(error.detail));
   },
 }

@@ -9,9 +9,12 @@
   "private": true,
   "dependencies": {
     "apollo-server": "^2.7.0",
+    "chai": "^4.2.0",
     "global": "^4.4.0",
     "graphql": "^14.4.2",
     "knex": "^0.19.1",
-    "pg": "^7.11.0"
+    "mocha": "^6.2.0",
+    "pg": "^7.11.0",
+    "supertest": "^4.0.2"
   }
 }

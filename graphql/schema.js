@@ -76,17 +76,26 @@ const typeDefs = gql`
     causative_passive_polite_past_negative_form: String
   }
 
-  type VerbSummary {
+  type VerbResult {
     dictionary_form: String
+    queried_form: String
     type: String
   }
 
-  type Query {
-    search (query: String!): VerbSummary
-    conjugate (verb: String!): Verb
+  type MutationResult {
+    verb: Verb
+    success: Boolean
   }
+
+  type Query {
+    search (query: String!): VerbResult
+    conjugate (verb: String!, type: String): Verb
+  }
+
   type Mutation {
-    add (dictionary_form: String, type: String): Verb
+    create (dictionary_form: String, type: String): MutationResult
+    update (target: String, dictionary_form: String, type: String): MutationResult
+    delete (target: String): Boolean
   }
 `;
 
