@@ -137,7 +137,10 @@ class Verb {
   get tai_past_negative_form() { return this.masu_stem + "たくなかった" }
 
   // POTENTIAL FORM
-  get potential_root() { return this.change_sound(this.dictionary_form, "e") }
+  get potential_root() { 
+    if (this.dictionary_form === "ある") return "ありえ";
+    return this.change_sound(this.dictionary_form, "e") ;
+  }
   get potential_polite_present_form() { return this.potential_root + "ます" }
   get potential_polite_present_negative_form() { return this.potential_root + "ません" }
   get potential_polite_past_form() { return this.potential_root + "ました" }
