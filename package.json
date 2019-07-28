@@ -1,12 +1,19 @@
 {
-  "name": "japanese-api",
+  "name": "japanese-verb-api",
   "version": "0.0.1",
-  "description": "API for Japanese Language",
+  "description": "API for Japanese Verbs",
   "main": "index.js",
   "repository": "https://github.com/N/A",
   "author": "Wilson Lau",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "test": "mocha tests",
+    "start": "node index.js"
+  },
   "dependencies": {
     "apollo-server": "^2.7.0",
     "chai": "^4.2.0",
