@@ -1,12 +1,8 @@
-This was created during my time as a student at Code Chrysalis. 
-
 ## About this Project
 
-This is an API that handles all Japanese verb conjugations. The base data provided in this project provides for approximately 300 verbs as a starting point, but the database can also be populated via the API provided. In addition, the API handles conjugations for all verbs when the type of the verb (ru-verb, u-verb, irregular) is specified. 
+This is an GraphQL API that handles all Japanese verb conjugations. The base data provided in this project provides for approximately 300 verbs as a starting point, but the database can also be populated via the API provided. In addition, the API handles conjugations for all verbs when the type of the verb (ru-verb, u-verb, irregular) is specified. 
 
 ## Usage
-
-
 
 To configure the server, modify `knexfile.js` with your database configurations. This API uses a postgresql server by default. 
 
