@@ -15,7 +15,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "apollo-server": "^2.7.0",
+    "apollo-server": "^2.25.3",
     "chai": "^4.2.0",
     "global": "^4.4.0",
     "graphql": "^14.4.2",
